@@ -253,35 +253,35 @@ void handleIndex() {
   content +="<table>";
   content +="<tr>";
   content +="<td></td>";
-  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"action(1)\">Forward</button></td>";
+  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"action(8)\">Forward</button></td>";
   content +="<td></td>";
   content +="</tr>";
 
   content +="<tr>";
-  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"action(3)\">Left</button></td>";
-  content +="<td><button  class=\"pm_btn\" style=\"background: #ed3db5;\" type=\"button\" onclick=\"action(99)\">STOP</button></td>";
-  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"action(4)\">Right</button></td>";
+  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"action(10)\">Left</button></td>";
+  content +="<td><button  class=\"pm_btn\" style=\"background: #ed3db5;\" type=\"button\" onclick=\"action(1)\">STOP</button></td>";
+  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"action(11)\">Right</button></td>";
   content +="</tr>";
 
   content +="<tr>";
   content +="<td></td>";
-  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"controlPm(2)\">Backward</button></td>";
+  content +="<td><button  class=\"pm_btn\" type=\"button\" onclick=\"controlPm(9)\">Backward</button></td>";
   content +="<td></td>";
   content +="</tr>";
   content +="</table>";
 
   content +="<table>";
   content +="<tr>";
-  content +="<td><button class=\"pms_btn\"  type=\"button\" onclick=\"action(1)\">Bow</button></td>";
-  content +="<td><button  class=\"pms_btn\" type=\"button\" onclick=\"action(4)\">Apache</button></td>";
+  content +="<td><button class=\"pms_btn\"  type=\"button\" onclick=\"action(2)\">Bow</button></td>";
+  content +="<td><button  class=\"pms_btn\" type=\"button\" onclick=\"action(5)\">Apache</button></td>";
   content +="</tr>";
   content +="<tr>";
-  content +="<td><button class=\"pms_btn\"  type=\"button\" onclick=\"action(2)\">Waving</button></td>";
-  content +="<td><button  class=\"pms_btn\" type=\"button\" onclick=\"action(5)\">Balance</button></td>";
+  content +="<td><button class=\"pms_btn\"  type=\"button\" onclick=\"action(3)\">Waving</button></td>";
+  content +="<td><button  class=\"pms_btn\" type=\"button\" onclick=\"action(6)\">Balance</button></td>";
   content +="</tr>";
   content +="<tr>";
-  content +="<td><button class=\"pms_btn\"  type=\"button\" onclick=\"action(3)\">Iron Man</button></td>";
-  content +="<td><button  class=\"pms_btn\" type=\"button\" onclick=\"action(6)\">Warm-Up</button></td>";
+  content +="<td><button class=\"pms_btn\"  type=\"button\" onclick=\"action(4)\">Iron Man</button></td>";
+  content +="<td><button  class=\"pms_btn\" type=\"button\" onclick=\"action(7)\">Warm-Up</button></td>";
   content +="</tr>";
   content +="<tr>";
   content +="<td colspan=\"2\"><center><button  class=\"pms_btn\" type=\"button\" onclick=\"action(99)\">Auto</button></center></td>";
@@ -542,12 +542,18 @@ void handleMotor(){
       pwm.setPWM(iMotorId, 0, pulselength);
     }
   }
+  server.send(200, "text/html", "motor_id="+motorId+",value="+value);
 }
 void handleAction(){
   String actionId = server.arg("action_id");//前進  後退
   if(actionId!=""){
     currentAction = actionId.toInt();
   }
+  server.send(200, "text/html", "action_id="+actionId);
+}
+
+int getCurrentAction(){
+  return currentAction;
 }
 
 void handleController() {

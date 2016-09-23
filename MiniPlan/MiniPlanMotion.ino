@@ -389,6 +389,7 @@ void resetToStand()
     setPWMVal(iServo, currentPosition[iServo]);
     delay(10);
   }
+  Serial.print("resetToStand complete:");
 }
 
 /*============================================================================*/
@@ -413,80 +414,84 @@ void setPWMVal(int iServoId, int iValue)
 //============================================================================
 
 void doAction(int actionId){
-  int iMatrix [][19]= {};
+  //int iMatrix [][19]= {};
   int steps = 0;
-  
-  if (currentAction != -1 )
-  //if (Servo_PROGRAM >= 1 )
+  Serial.print("miniPlan doAction:");
+  Serial.println(actionId);
+  if (actionId != rollbackAction )
   {
-    switch (currentAction)
+    switch (actionId)
     {
       case ACTION_01:  // 待機姿勢
-        Serial.println("miniPlan 待機姿勢");
+        Serial.println("miniPlan stand");
         steps = getActionSteps(ACTION_01);
         //getAction(ACTION_01, iMatrix);
-        execAction(iMatrix, steps);
+        execAction(action01, steps);
         resetToStand();
         break;
       case ACTION_02:  // 鞠躬動作
-        Serial.println("miniPlan 鞠躬動作");
+        Serial.println("miniPlan bow");
         steps = getActionSteps(ACTION_02);
-        execAction(iMatrix, steps);
+        execAction(action02, steps);
         resetToStand();
         break;
       case ACTION_03:  // 揮手動作
-        Serial.println("miniPlan 揮手動作");
+        Serial.println("miniPlan wave");
         steps = getActionSteps(ACTION_03);
-        execAction(iMatrix, steps);
+        execAction(action03, steps);
         resetToStand();
         break;
       case ACTION_04:  // 鋼鐵人動作
-        Serial.println("miniPlan 鋼鐵人動作");
+        Serial.println("miniPlan ironman");
         steps = getActionSteps(ACTION_04);
-        execAction(iMatrix, steps);
+        execAction(action04, steps);
         resetToStand();
         break;
       case ACTION_05:  // 阿帕契動作
-        Serial.println("miniPlan 阿帕契動作");
+        Serial.println("miniPlan apache");
         steps = getActionSteps(ACTION_05);
-        execAction(iMatrix, steps);
+        //getAction(ACTION_05, iMatrix);
+        Serial.print("miniPlan apache step:");
+        Serial.println(steps);
+        execAction(action05, steps);
+        Serial.println("miniPlan apache complete");
         resetToStand();
         break;
-      case ACTION_06:  // 阿帕契動作
-        Serial.println("miniPlan 單腳平衡動作");
+      case ACTION_06:  // balance動作
+        Serial.println("miniPlan balance");
         steps = getActionSteps(ACTION_06);
-        execAction(iMatrix, steps);
+        execAction(action06, steps);
         resetToStand();
         break;
       case ACTION_07:  // 暖身動作
-        Serial.println("miniPlan 暖身動作");
+        Serial.println("miniPlan warm-up");
         steps = getActionSteps(ACTION_07);
-        execAction(iMatrix, steps);
+        execAction(action07, steps);
         resetToStand();
         break;
       case ACTION_08:  // 前進動作
-        Serial.println("miniPlan 前進動作");
+        Serial.println("miniPlan forward");
         steps = getActionSteps(ACTION_08);
-        execAction(iMatrix, steps);
+        execAction(action08, steps);
         resetToStand();
         break;
       case ACTION_09:  // 後退動作
-        Serial.println("miniPlan 後退動作");
+        Serial.println("miniPlan backward");
         steps = getActionSteps(ACTION_09);
-        execAction(iMatrix, steps);
+        execAction(action09, steps);
         resetToStand();
         break;
       case ACTION_10:  // 左轉動作
-        Serial.println("miniPlan 左轉動作");
+        Serial.println("miniPlan left");
         steps = getActionSteps(ACTION_10);
-        execAction(iMatrix, steps);
+        execAction(action10, steps);
         resetToStand();
         break;
         
       case ACTION_11:  // 右轉動作
-        Serial.println("miniPlan 右轉動作");
+        Serial.println("miniPlan right");
         steps = getActionSteps(ACTION_11);
-        execAction(iMatrix, steps);
+        execAction(action11, steps);
         resetToStand();
         break;
       case 999:  // 待機
@@ -498,8 +503,10 @@ void doAction(int actionId){
         delay(300);
         break;
     }
-    currentAction = 0;
+    //actionId = rollbackAction;
+    
   }
+  Serial.print("doAction complete:");
 }
 
 /*============================================================================*/
@@ -512,6 +519,11 @@ void execAction(int iMatrix[][19],  int iSteps)
   {
     //最後一個index
     // InterTotalTime 此步驟總時間
+
+//    Serial.print("miniPlan execAction apache step loop:");
+//    Serial.print(mainActionIndex);
+//     Serial.print("-");
+//      Serial.println(readKeyValue(ALLMATRIX - 1));
     //int InterTotalTime = iMatrix [ MainLoopIndex ] [ ALLMATRIX - 1 ] + Servo_Act_Fix[ALLMATRIX - 1];
     int InterTotalTime = iMatrix [ mainActionIndex ] [ ALLMATRIX - 1 ] + readKeyValue(ALLMATRIX - 1);
     // InterDelayCounter 此步驟基本延遲次數
@@ -520,10 +532,16 @@ void execAction(int iMatrix[][19],  int iSteps)
     // 內差次數迴圈
     for ( int InterStepLoop = 0; InterStepLoop < InterDelayCounter; InterStepLoop++)
     {
-
+//       Serial.print("miniPlan execAction apache step loop [2]:");
+//      Serial.print(InterStepLoop);
+//      Serial.print("/");
+//      Serial.println(InterTotalTime);
       for (int ServoIndex = 0; ServoIndex < ALLSERVOS; ServoIndex++)  // 馬達主迴圈
       {
-
+//         Serial.print("miniPlan execAction apache step loop [3]:");
+//         Serial.print(InterStepLoop);
+//         Serial.print(":");
+//          Serial.println(ServoIndex);
         INT_TEMP_A = currentPosition[ServoIndex];                                                    // 馬達現在位置
         INT_TEMP_B = iMatrix[mainActionIndex][ServoIndex] + readKeyValue(ServoIndex);    // 馬達目標位置
         
@@ -582,8 +600,8 @@ void writeKeyValue(int8_t key, int8_t value)
 /*============================================================================*/
 int8_t readKeyValue(int8_t key)
 {
-  Serial.println("read");
-  Serial.println(key);
+  //Serial.println("read");
+  //Serial.println(key);
 
   int8_t value = EEPROM.read(key);
   return value;

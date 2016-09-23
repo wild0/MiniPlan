@@ -28,6 +28,7 @@ int GPIO_ID;
 int GPIO12_PWM; //16
 int GPIO14_PWM; //17
 
+int rollbackAction;
 int currentAction;
 
 // Backup Servo Value
@@ -37,21 +38,22 @@ ESP8266WebServer server(80);
 Servo GPIO12SERVO;
 Servo GPIO14SERVO;
 
-const int ACTION_01 = 1;
-const int ACTION_02 = 4;
-const int ACTION_03 = 9;
-const int ACTION_04 = 16;
-const int ACTION_05 = 25;
-const int ACTION_06 = 36;
-const int ACTION_07 = 49;
-const int ACTION_08 = 64;
-const int ACTION_09 = 81;
-const int ACTION_10 = 100;
-const int ACTION_11 = 121;
+const int ACTION_01 = 1; //standby
+const int ACTION_02 = 2;//bow
+const int ACTION_03 = 3;//wave
+const int ACTION_04 = 4;//ironman
+const int ACTION_05 = 5;//apache
+const int ACTION_06 = 6;//balance
+const int ACTION_07 = 7;//warmup
+const int ACTION_08 = 8;//forward
+const int ACTION_09 = 9;//backward
+const int ACTION_10 = 10;//left
+const int ACTION_11 = 11;//right
 
 void setup(void) {
   
-  currentAction = -1;
+  currentAction = 0;
+  rollbackAction = 0;
   
   // PCA9685 OE PIN
   Serial.begin(9600);
@@ -117,8 +119,21 @@ void loop(void) {
 
   
   server.handleClient();
-  doAction(currentAction);
+  if(rollbackAction!=currentAction){
+    
+     Serial.print("current action b4:");
+     Serial.println(currentAction);
+     doAction(currentAction);
+     currentAction = rollbackAction;
 
+     Serial.print("current action after:");
+     Serial.println(currentAction);
+  }
+  //Serial.print("current action b4:");
+  //Serial.println(currentAction);
+  //doAction(currentAction);
+  //Serial.print("current action after:");
+  //Serial.println(currentAction);
   delay(100);
 }
 
