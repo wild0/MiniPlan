@@ -266,10 +266,6 @@ int  action11 [][ALLMATRIX] PROGMEM = {
   {    65,      35,      80,      60,      80,     100,     95,      80,      40,      25,       20,       30,       55,       35,       75,       50,        90,       90,      300   }      // 立正
 };
 
-void getActionStep(int actionId){
-  
-  
-}
 int getActionSteps(int actionId){
   int steps = 0;
   switch(actionId){
@@ -353,7 +349,7 @@ void getAction(int actionId, int actionMatrix [][19]){
 
 }
 void resetServo(){
-  // 清除備份目前馬達數值
+  // 清除備份目前馬達數值, 並且使用立正的姿勢
   for ( int Index = 0; Index < ALLMATRIX; Index++)
   {
     currentPosition[Index] = action00[Index] + readKeyValue(Index);
@@ -384,7 +380,7 @@ void resetToStand()
   // 清除備份目前馬達數值
   for ( int index = 0; index < ALLMATRIX; index++)
   {
-    currentPosition[index] = action00[index] + readKeyValue(index);;
+    currentPosition[index] = action00[index] + readKeyValue(index);
   }
 
   // 重新載入馬達預設數值

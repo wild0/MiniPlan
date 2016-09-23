@@ -71,9 +71,9 @@ void handleZero(){
   
   content += "<table width=\"100%\">";
   content +="<tr>";
-  content +="<td><a href='./index'><button>主頁</button></a></td>";
-  content +="<td><a href='./editor'><button>馬達設定</button></a></td>";
-  content +="<td><a href='./zero'><button>馬德初始化</button></a></td>";
+  content +="<td><a href='./index'><button>Home</button></a></td>";
+  content +="<td><a href='./editor'><button>Setting Motor</button></a></td>";
+  content +="<td><a href='./zero'><button>Init Motor</button></a></td>";
   content +="</tr>";
   content += "</table>";
   
@@ -380,9 +380,9 @@ void handlerEditor(){
   
   content += "<table width=\"100%\">";
   content +="<tr>";
-  content +="<td><a href='./index'><button>主頁</button></a></td>";
-  content +="<td><a href='./editor'><button>馬達設定</button></a></td>";
-  content +="<td><a href='./zero'><button>馬德初始化</button></a></td>";
+  content +="<td><a href='./index'><button>Home</button></a></td>";
+  content +="<td><a href='./editor'><button>Setting Motor</button></a></td>";
+  content +="<td><a href='./zero'><button>Init Motor</button></a></td>";
   content +="</tr>";
   content += "</table>";
   
