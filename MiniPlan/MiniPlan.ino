@@ -24,12 +24,9 @@ const int BASEDELAYTIME = 10;    // 10ms
 // AP Password
 const char WiFiAPPSK[] = "12345678";
 
-//int Servo_OE;
-//int Servo_PROGRAM;
-//int Servo_PROGRAM_Stack;
 int GPIO_ID;
-int GPIO12_PWM;
-int GPIO14_PWM;
+int GPIO12_PWM; //16
+int GPIO14_PWM; //17
 
 int currentAction;
 
@@ -107,12 +104,6 @@ void setup(void) {
   delay(10);
 
   resetServo();
-  // 清除備份目前馬達數值
-  //for ( int Index = 0; Index < ALLMATRIX; Index++)
-  //{
-  //  Running_Servo_POS[Index] = action00[Index] + readKeyValue(Index);
-  //}
-
 
   // 啟用網頁伺服器
    enableWebServer();
