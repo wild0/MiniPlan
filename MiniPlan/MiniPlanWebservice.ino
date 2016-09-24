@@ -71,64 +71,67 @@ void handleZero(){
   
   content += "<table width=\"100%\">";
   content +="<tr>";
-  content +="<td><a href='./index'><button>Home</button></a></td>";
-  content +="<td><a href='./editor'><button>Setting Motor</button></a></td>";
-  content +="<td><a href='./zero'><button>Init Motor</button></a></td>";
+  content +="<td><a href='./' class=\"pm_text\"><button>Home</button></a></td>";
+  content +="<td><a href='./editor'  class=\"pm_text\"><button>Editor Motor</button></a></td>";
+  content +="<td><a href='./zero'  class=\"pm_text\"><button>Init Motor</button></a></td>";
+  content +="<td><a href='./setting'  class=\"pm_text\"><button>Setting Motor</button></a></td>";
   content +="</tr>";
   content += "</table>";
   
   content += "<table width=\"100%\">";
   content += "<tr>";
   
-  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlGpid(14, 90)\">GPIO14</button></td>";
-  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlGpid(12, 90)\">GPIO12</button></td>";
+  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"motor(17, 90)\">GPIO14[17]</button></td>";
+  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"motor(16, 90)\">GPIO12[16]</button></td>";
   content += "</tr>";
   
   content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(8,90)\">Servo 10</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(7, 60)\">Servo 5</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(8,40)\">Servo 8</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(7,80)\">Servo 7</button></td>";
   content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(9,100)\">Servo 9</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(6,20)\">Servo 6</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(10,20)\">Servo 10</button></td>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(5, 100)\">Servo 5</button></td>";
+  content += "</tr>";
+  content += "</table>";
+
+  content += "<br>";
+
+  content += "<table>";
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(11,30)\">Servo 11</button></td>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(4,80)\">Servo 4</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(12,55)\">Servo 12</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(3,60)\">Servo 3</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(13,35)\">Servo 13</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(2,80)\">Servo 2</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(14,75)\">Servo 14</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(1,35)\">Servo 1</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(15,50)\">Servo 15</button></td>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(0,65)\">Servo 0</button></td>";
+  content += "</tr>";
+
   
   content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(9,90)\">Servo 9</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(6,'servo_6')\">Servo 6</button></td>";
-  content += "</tr>";
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(8,90)\">Servo 8</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(7,90)\">Servo 7</button></td>";
-  content += "</tr>";
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(11,90)\">Servo 11</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(4,90)\">Servo 4</button></td>";
-  content += "</tr>";
-  
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(12,90)\">Servo 12</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(3,90)\">Servo 3</button></td>";
-  content += "</tr>";
-  
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(13,90)\">Servo 13</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(2,90)\">Servo 2</button></td>";
-  content += "</tr>";
-  
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(14,90)\">Servo 14</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(1,90)\">Servo 1</button></td>";
-  content += "</tr>";
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(15,90)\">Servo 15</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(0,90)\">Servo 0</button></td>";
-  content += "</tr>";
-  
-  content += "<tr>";
-  content += "<td colspan=\"2\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlPm(100)\">ALL</button></td>";
+  content += "<td colspan=\"2\"><button class=\"pm_btn\" type=\"button\" onclick=\"reset()\">ALL</button></td>";
   content += "</tr>";
   
   
@@ -138,7 +141,7 @@ void handleZero(){
   
   content += "</body>";
   content += "<script>";
-  content += "function controlServo(id, value) {";
+  content += "function motor(id, value) {";
   content += "  var xhttp = new XMLHttpRequest();";
   
   content += "  xhttp.onreadystatechange = function() {";
@@ -146,29 +149,52 @@ void handleZero(){
   content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
   content += "    }";
   content += "  };";
-  content += "  xhttp.open(\"GET\", \"controller?servo=\"+id+\"&value=\"+value, true);";
-  content += "  xhttp.send();";
-  content += "}";
-  content += "function controlGpid(id, value) {";
-  content += "  var xhttp = new XMLHttpRequest();";
-  
-  content += "  xhttp.onreadystatechange = function() {";
-  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
-  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
-  content += "    }";
-  content += "  };";
-  content += "  xhttp.open(\"GET\", \"controller?gpid=\"+id+\"&value=\"+value, true);";
+  content += "  xhttp.open(\"GET\", \"motor?motor_id=\"+id+\"&value=\"+value, true);";
   content += "  xhttp.send();";
   content += "}";
   
-  content += "function controlPm(value) {";
+  content += "function reset() {";
+  content += "  var xhttp = new XMLHttpRequest();";
+  
+  content += "  xhttp.onreadystatechange = function() {";
+  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+  content += "    }";
+  content += "  };";
+  content += "  xhttp.open(\"GET\", \"reset\", true);";
+  content += "  xhttp.send();";
+  content += "}";
+//  content += "function controlGpid(id, value) {";
+//  content += "  var xhttp = new XMLHttpRequest();";
+//  
+//  content += "  xhttp.onreadystatechange = function() {";
+//  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+//  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+//  content += "    }";
+//  content += "  };";
+//  content += "  xhttp.open(\"GET\", \"controller?gpid=\"+id+\"&value=\"+value, true);";
+//  content += "  xhttp.send();";
+//  content += "}";
+  
+//  content += "function controlPm(value) {";
+//  content += "  var xhttp = new XMLHttpRequest();";
+//  content += "  xhttp.onreadystatechange = function() {";
+//  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+//  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+//  content += "    }";
+//  content += "  };";
+//  content += "  xhttp.open(\"GET\", \"controller?pm=\"+value, true);";
+//  content += "  xhttp.send();";
+//  content += "}";
+
+  content += "function action(actionId, value) {";
   content += "  var xhttp = new XMLHttpRequest();";
   content += "  xhttp.onreadystatechange = function() {";
   content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
   content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
   content += "    }";
   content += "  };";
-  content += "  xhttp.open(\"GET\", \"controller?pm=\"+value, true);";
+  content += "  xhttp.open(\"GET\", \"action?action_id=\"+actionId, true);";
   content += "  xhttp.send();";
   content += "}";
   
@@ -244,9 +270,10 @@ void handleIndex() {
   
   content += "<table width=\"100%\">";
   content +="<tr>";
-  content +="<td><a href='./index'><button>Home</button></a></td>";
-  content +="<td><a href='./editor'><button>Setting Motor</button></a></td>";
-  content +="<td><a href='./zero'><button>Init Motor</button></a></td>";
+  content +="<td><a href='./' class=\"pm_text\"><button>Home</button></a></td>";
+  content +="<td><a href='./editor'  class=\"pm_text\"><button>Editor Motor</button></a></td>";
+  content +="<td><a href='./zero'  class=\"pm_text\"><button>Init Motor</button></a></td>";
+  content +="<td><a href='./setting'  class=\"pm_text\"><button>Setting Motor</button></a></td>";
   content +="</tr>";
   content += "</table>";
   
@@ -484,6 +511,233 @@ void handlerEditor(){
   
 }
 
+/*============================================================================
+  馬達校正畫面
+  ============================================================================*/
+void handleSetting()
+{
+  int8_t servo17Val = readKeyValue(17);
+  String servo17ValStr = String(servo17Val);
+
+  int8_t servo16Val = readKeyValue(16);
+  String servo16ValStr = String(servo16Val);
+
+  int8_t servo8Val = readKeyValue(8);
+  String servo8ValStr = String(servo8Val);
+
+  int servo7Val = readKeyValue(7);
+  String servo7ValStr = String(servo7Val);
+
+  int servo9Val = readKeyValue(9);
+  String servo9ValStr = String(servo9Val);
+
+  int servo6Val = readKeyValue(6);
+  String servo6ValStr = String(servo6Val);
+
+  int servo10Val = readKeyValue(10);
+  String servo10ValStr = String(servo10Val);
+
+  int servo5Val = readKeyValue(5);
+  String servo5ValStr = String(servo5Val);
+
+  int servo11Val = readKeyValue(11);
+  String servo11ValStr = String(servo11Val);
+
+  int servo4Val = readKeyValue(4);
+  String servo4ValStr = String(servo4Val);
+
+  int servo12Val = readKeyValue(12);
+  String servo12ValStr = String(servo12Val);
+
+  int servo3Val = readKeyValue(3);
+  String servo3ValStr = String(servo3Val);
+
+  int servo13Val = readKeyValue(13);
+  String servo13ValStr = String(servo13Val);
+
+  int servo2Val = readKeyValue(2);
+  String servo2ValStr = String(servo2Val);
+
+  int servo14Val = readKeyValue(14);
+  String servo14ValStr = String(servo14Val);
+
+  int servo1Val = readKeyValue(1);
+  String servo1ValStr = String(servo1Val);
+
+  int servo15Val = readKeyValue(15);
+  String servo15ValStr = String(servo15Val);
+
+  int servo0Val = readKeyValue(0);
+  String servo0ValStr = String(servo0Val);
+
+  String content = "";
+  content += "<html>";
+  content += "<head>";
+  content += "  <title>MiniPlan Setting</title>";
+  content += "  <style type=\"text/css\">";
+  content += "  body {";
+  content += "    color: white;";
+  content += "    background-color: #000000 }";
+
+  content += "  .pm_btn {";
+  content += "  width: 120px;";
+  content += "  -webkit-border-radius: 5;";
+  content += "  -moz-border-radius: 5;";
+  content += "  border-radius: 5px;";
+  content += "  font-family: Arial;";
+  content += "  color: #ffffff;";
+  content += "  font-size: 24px;";
+  content += "  background: #3498db;";
+  content += "  padding: 10px 20px 10px 20px;";
+  content += "  text-decoration: none;";
+  content += "}";
+  content += ".pm_text {";
+  content += "width: 80px;";
+  content += "-webkit-border-radius: 5;";
+  content += "-moz-border-radius: 5;";
+  content += "border-radius: 5px;";
+  content += "font-family: Arial;";
+  content += "font-size: 24px;";
+
+  content += "padding: 10px 20px 10px 20px;";
+  content += "text-decoration: none;";
+  content += "}";
+
+  content += ".pm_btn:hover {";
+  content += "  background: #3cb0fd;";
+  content += "  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);";
+  content += "  text-decoration: none;";
+  content += "}";
+
+  content += ".pms_btn {";
+  content += "width: 160px;";
+  content += "-webkit-border-radius: 5;";
+  content += "-moz-border-radius: 5;";
+  content += "border-radius: 5px;";
+  content += "font-family: Arial;";
+  content += "color: #ffffff;";
+  content += "font-size: 24px;";
+  content += "background: #3498db;";
+  content += "padding: 10px 20px 10px 20px;";
+  content += "text-decoration: none;";
+  content += "}";
+
+  content += ".pms_btn:hover {";
+  content += "background: #3cb0fd;";
+  content += "background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: -o-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: linear-gradient(to bottom, #3cb0fd, #3498db);";
+  content += "text-decoration: none;";
+  content += "}";
+  content += "  </style>";
+  content += "</head>";
+  content += "<body>";
+
+  content += "<table>";
+  content += "<tr>";
+  content += "<td>GPIO 14<br/><input class=\"pm_text\" type=\"text\" id=\"servo_17\" value=\"" + servo17ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(17,'servo_17')\">SET</button></td>";
+  content += "<td>GPIO 12<br/><input class=\"pm_text\" type=\"text\" id=\"servo_16\" value=\"" + servo16ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(16,'servo_16')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 8<br/><input class=\"pm_text\" type=\"text\" id=\"servo_8\" value=\"" + servo8ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(8,'servo_8')\">SET</button></td>";
+  content += "<td>Servo 7<br/><input class=\"pm_text\" type=\"text\" id=\"servo_7\" value=\"" + servo7ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(7,'servo_7')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 9<br/><input class=\"pm_text\" type=\"text\" id=\"servo_9\" value=\"" + servo9ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(9,'servo_9')\">SET</button></td>";
+  content += "<td>Servo 6<br/><input class=\"pm_text\" type=\"text\" id=\"servo_6\" value=\"" + servo6ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(6,'servo_6')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 10<br/><input class=\"pm_text\" type=\"text\" id=\"servo_10\" value=\"" + servo10ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(10,'servo_10')\">SET</button></td>";
+  content += "<td>Servo 5<br/><input class=\"pm_text\" type=\"text\" id=\"servo_5\" value=\"" + servo5ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(5,'servo_5')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 11<br/><input class=\"pm_text\" type=\"text\" id=\"servo_11\" value=\"" + servo11ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(11,'servo_11')\">SET</button></td>";
+  content += "<td>Servo 4<br/><input class=\"pm_text\" type=\"text\" id=\"servo_4\" value=\"" + servo4ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(4,'servo_4')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 12<br/><input class=\"pm_text\" type=\"text\" id=\"servo_12\" value=\"" + servo12ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(12,'servo_12')\">SET</button></td>";
+  content += "<td>Servo 3<br/><input class=\"pm_text\" type=\"text\" id=\"servo_3\" value=\"" + servo3ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(3,'servo_3')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 13<br/><input class=\"pm_text\" type=\"text\" id=\"servo_13\" value=\"" + servo13ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(13,'servo_13')\">SET</button></td>";
+  content += "<td>Servo 2<br/><input class=\"pm_text\" type=\"text\" id=\"servo_2\" value=\"" + servo2ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(2,'servo_2')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 14<br/><input class=\"pm_text\" type=\"text\" id=\"servo_14\" value=\"" + servo14ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(14,'servo_14')\">SET</button></td>";
+  content += "<td>Servo 1<br/><input class=\"pm_text\" type=\"text\" id=\"servo_1\" value=\"" + servo1ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(1,'servo_1')\">SET</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td>Servo 15<br/><input class=\"pm_text\" type=\"text\" id=\"servo_15\" value=\"" + servo15ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(15,'servo_15')\">SET</button></td>";
+  content += "<td>Servo 0<br/><input class=\"pm_text\" type=\"text\" id=\"servo_0\" value=\"" + servo0ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(0,'servo_0')\">SET</button></td>";
+  content += "</tr>";
+  content += "</table>";
+
+  content += "<br>";
+
+  content += "<table>";
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #ed3db5;\" type=\"button\" onclick=\"saveServo(100, 0)\">RESET</button></td>";
+  content += "</tr>";
+  content += "</table>";
+
+  content += "<br>";
+
+  content += "</body>";
+  content += "<script>";
+
+  content += "function saveServo(id, textId) {";
+  content += "  var xhttp = new XMLHttpRequest();";
+  content += "  var value = \"0\";";
+  content += "  if(id==100){";
+  content += "    document.getElementById(\"servo_17\").value = \"0\";";
+  content += "    document.getElementById(\"servo_16\").value = \"0\";";
+  content += "    document.getElementById(\"servo_15\").value = \"0\";";
+  content += "    document.getElementById(\"servo_14\").value = \"0\";";
+  content += "    document.getElementById(\"servo_13\").value = \"0\";";
+  content += "    document.getElementById(\"servo_12\").value = \"0\";";
+  content += "    document.getElementById(\"servo_11\").value = \"0\";";
+  content += "    document.getElementById(\"servo_10\").value = \"0\";";
+  content += "    document.getElementById(\"servo_9\").value = \"0\";";
+  content += "    document.getElementById(\"servo_8\").value = \"0\";";
+  content += "    document.getElementById(\"servo_7\").value = \"0\";";
+  content += "    document.getElementById(\"servo_6\").value = \"0\";";
+  content += "    document.getElementById(\"servo_5\").value = \"0\";";
+  content += "    document.getElementById(\"servo_4\").value = \"0\";";
+  content += "    document.getElementById(\"servo_3\").value = \"0\";";
+  content += "    document.getElementById(\"servo_2\").value = \"0\";";
+  content += "    document.getElementById(\"servo_1\").value = \"0\";";
+  content += "    document.getElementById(\"servo_0\").value = \"0\";";
+  content += "  }else{";
+  content += "    value = document.getElementById(textId).value;";
+  content += "   }";
+  content += "  xhttp.onreadystatechange = function() {";
+  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+  content += "    }";
+  content += "  };";
+  content += "  xhttp.open(\"GET\",\"save?key=\"+id+\"&value=\"+value, true);";
+  content += "  xhttp.send();";
+  content += "}";
+
+  content += "</script>";
+  content += "</html>";
+  server.send(200, "text/html", content);
+}
+
 /*============================================================================*/
 void handleSave()
 {
@@ -552,6 +806,12 @@ void handleAction(){
   server.send(200, "text/html", "action_id="+actionId);
 }
 
+void handleReset(){
+  currentAction = ACTION_DAVINCI;
+  
+  server.send(200, "text/html", "reset=complete");
+}
+
 int getCurrentAction(){
   return currentAction;
 }
@@ -598,6 +858,16 @@ void handleController() {
   server.send(200, "text/html", "(pm, pms)=("+pm+","+pms+")");
 }
 
+void handleHello(){
+  String content = "";
+  content = "<html>";
+  content += "<body>";
+  content += "Hello word";
+  content += "</body>";
+  content += "</html>";
+  server.send(200, "text/html", content);
+}
+
 void enableWebServer(){
   
   HTTPMethod getMethod = HTTP_GET;
@@ -609,6 +879,10 @@ void enableWebServer(){
   server.on("/controller", getMethod, handleController);
   server.on("/action", getMethod, handleAction);
   server.on("/motor", getMethod, handleMotor);
+  server.on("/reset", getMethod, handleReset);
+  server.on("/setting", getMethod, handleSetting);
+  server.on("/hello", getMethod, handleHello);
+  
   server.begin();
   
   Serial.println("service enable");

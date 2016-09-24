@@ -10,7 +10,7 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 // Servos Matrix
 const int ALLMATRIX = 19;          // 0 ~ 15 Servo + GPIO12 + GPIO14 + Run Time
-const int ALLSERVOS = 18;        // 0 ~ 15 Servo + GPIO12 + GPIO14
+const int ALLSERVOS = 18;        // 16 ~ 17 Servo + GPIO12 + GPIO14
 const int PWMRES_Min = 1;        // PWM Resolution 1
 const int PWMRES_Max = 120;   // PWM Resolution 120
 
@@ -49,6 +49,7 @@ const int ACTION_08 = 8;//forward
 const int ACTION_09 = 9;//backward
 const int ACTION_10 = 10;//left
 const int ACTION_11 = 11;//right
+const int ACTION_DAVINCI = 99;
 
 void setup(void) {
   
@@ -75,14 +76,6 @@ void setup(void) {
   // PWMServoDriver
   pwm.begin();
   pwm.setPWMFreq(320);   // servos run at 300Hz updates
-
-
-  // 清除備份目前馬達數值
-  //for ( int Index = 0; Index < ALLMATRIX; Index++)
-  //{
-  //  Running_Servo_POS[Index] = Servo_Act_1[Index] + Servo_Act_Fix[Index];
-  //}
-
 
   // AP SSID Name
   uint8_t mac[WL_MAC_ADDR_LENGTH];
