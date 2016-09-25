@@ -1,210 +1,3 @@
-void handleZero(){
-
-  String content = "";
-  content += "<html>";
-  content += "<head>";
-  content += "<title>MiniPlen Controller</title>";
-  content += " <style type=\"text/css\">";
-  content += "  body {";
-  content += "    color: white;";
-  content += "    background-color: #000000 }";
-  
-  content += "  .pm_btn {";
-  //content += "  width: 160px;";
-  content += "  -webkit-border-radius: 5;";
-  content += "  -moz-border-radius: 5;";
-  content += "  border-radius: 5px;";
-  content += "  font-family: Arial;";
-  content += "  color: #ffffff;";
-  content += "  font-size: 24px;";
-  content += "  background: #3498db;";
-  content += "  padding: 10px 20px 10px 20px;";
-  content += "  text-decoration: none;";
-  content += "}";
-  content += ".pm_text {";
-  //content += "width: 160px;";
-  content += "-webkit-border-radius: 5;";
-  content += "-moz-border-radius: 5;";
-  content += "border-radius: 5px;";
-  content += "font-family: Arial;";
-  content += "font-size: 24px;";
-  
-  content += "padding: 10px 20px 10px 20px;";
-  content += "text-decoration: none;";
-  content += "}";
-  
-  content += ".pm_btn:hover {";
-  content += "  background: #3cb0fd;";
-  content += "  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);";
-  content += "  text-decoration: none;";
-  content += "}";
-  
-  content += ".pms_btn {";
-  //content += "width: 240px;";
-  content += "-webkit-border-radius: 5;";
-  content += "-moz-border-radius: 5;";
-  content += "border-radius: 5px;";
-  content += "font-family: Arial;";
-  content += "color: #ffffff;";
-  content += "font-size: 24px;";
-  content += "background: #3498db;";
-  content += "padding: 10px 20px 10px 20px;";
-  content += "text-decoration: none;";
-  content += "}";
-  
-  content += ".pms_btn:hover {";
-  content += "background: #3cb0fd;";
-  content += "background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "background-image: -o-linear-gradient(top, #3cb0fd, #3498db);";
-  content += "background-image: linear-gradient(to bottom, #3cb0fd, #3498db);";
-  content += "text-decoration: none;";
-  content += "}";
-  content += "  </style>";
-  content += "</head>";
-  content += "<body>";
-  
-  content += "<table width=\"100%\">";
-  content +="<tr>";
-  content +="<td><a href='./' class=\"pm_text\"><button>Home</button></a></td>";
-  content +="<td><a href='./editor'  class=\"pm_text\"><button>Editor Motor</button></a></td>";
-  content +="<td><a href='./zero'  class=\"pm_text\"><button>Init Motor</button></a></td>";
-  content +="<td><a href='./setting'  class=\"pm_text\"><button>Setting Motor</button></a></td>";
-  content +="</tr>";
-  content += "</table>";
-  
-  content += "<table width=\"100%\">";
-  content += "<tr>";
-  
-  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"motor(17, 90)\">GPIO14[17]</button></td>";
-  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"motor(16, 90)\">GPIO12[16]</button></td>";
-  content += "</tr>";
-  
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(8,40)\">Servo 8</button></td>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(7,80)\">Servo 7</button></td>";
-  content += "</tr>";
-
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(9,100)\">Servo 9</button></td>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(6,20)\">Servo 6</button></td>";
-  content += "</tr>";
-
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(10,20)\">Servo 10</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(5, 100)\">Servo 5</button></td>";
-  content += "</tr>";
-  content += "</table>";
-
-  content += "<br>";
-
-  content += "<table>";
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(11,30)\">Servo 11</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(4,80)\">Servo 4</button></td>";
-  content += "</tr>";
-
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(12,55)\">Servo 12</button></td>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(3,60)\">Servo 3</button></td>";
-  content += "</tr>";
-
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(13,35)\">Servo 13</button></td>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"controlServo(2,80)\">Servo 2</button></td>";
-  content += "</tr>";
-
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(14,75)\">Servo 14</button></td>";
-  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"controlServo(1,35)\">Servo 1</button></td>";
-  content += "</tr>";
-
-  content += "<tr>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(15,50)\">Servo 15</button></td>";
-  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(0,65)\">Servo 0</button></td>";
-  content += "</tr>";
-
-  
-  content += "<tr>";
-  content += "<td colspan=\"2\"><button class=\"pm_btn\" type=\"button\" onclick=\"reset()\">ALL</button></td>";
-  content += "</tr>";
-  
-  
-  content += "</table>";
-  content += "<br>";
-  
-  
-  content += "</body>";
-  content += "<script>";
-  content += "function motor(id, value) {";
-  content += "  var xhttp = new XMLHttpRequest();";
-  
-  content += "  xhttp.onreadystatechange = function() {";
-  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
-  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
-  content += "    }";
-  content += "  };";
-  content += "  xhttp.open(\"GET\", \"motor?motor_id=\"+id+\"&value=\"+value, true);";
-  content += "  xhttp.send();";
-  content += "}";
-  
-  content += "function reset() {";
-  content += "  var xhttp = new XMLHttpRequest();";
-  
-  content += "  xhttp.onreadystatechange = function() {";
-  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
-  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
-  content += "    }";
-  content += "  };";
-  content += "  xhttp.open(\"GET\", \"reset\", true);";
-  content += "  xhttp.send();";
-  content += "}";
-//  content += "function controlGpid(id, value) {";
-//  content += "  var xhttp = new XMLHttpRequest();";
-//  
-//  content += "  xhttp.onreadystatechange = function() {";
-//  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
-//  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
-//  content += "    }";
-//  content += "  };";
-//  content += "  xhttp.open(\"GET\", \"controller?gpid=\"+id+\"&value=\"+value, true);";
-//  content += "  xhttp.send();";
-//  content += "}";
-  
-//  content += "function controlPm(value) {";
-//  content += "  var xhttp = new XMLHttpRequest();";
-//  content += "  xhttp.onreadystatechange = function() {";
-//  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
-//  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
-//  content += "    }";
-//  content += "  };";
-//  content += "  xhttp.open(\"GET\", \"controller?pm=\"+value, true);";
-//  content += "  xhttp.send();";
-//  content += "}";
-
-  content += "function action(actionId, value) {";
-  content += "  var xhttp = new XMLHttpRequest();";
-  content += "  xhttp.onreadystatechange = function() {";
-  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
-  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
-  content += "    }";
-  content += "  };";
-  content += "  xhttp.open(\"GET\", \"action?action_id=\"+actionId, true);";
-  content += "  xhttp.send();";
-  content += "}";
-  
-  content += "</script>";
-  content += "</html>";
-  
-  server.send(200, "text/html", content);
-  
-}
-
 //首頁顯示的畫面
 void handleIndex() {
 
@@ -336,6 +129,211 @@ void handleIndex() {
   
 }
 
+void handleZero(){
+
+  String content = "";
+  content += "<html>";
+  content += "<head>";
+  content += "<title>MiniPlen Controller</title>";
+  content += " <style type=\"text/css\">";
+  content += "  body {";
+  content += "    color: white;";
+  content += "    background-color: #000000 }";
+  
+  content += "  .pm_btn {";
+  //content += "  width: 160px;";
+  content += "  -webkit-border-radius: 5;";
+  content += "  -moz-border-radius: 5;";
+  content += "  border-radius: 5px;";
+  content += "  font-family: Arial;";
+  content += "  color: #ffffff;";
+  content += "  font-size: 24px;";
+  content += "  background: #3498db;";
+  content += "  padding: 10px 20px 10px 20px;";
+  content += "  text-decoration: none;";
+  content += "}";
+  content += ".pm_text {";
+  //content += "width: 160px;";
+  content += "-webkit-border-radius: 5;";
+  content += "-moz-border-radius: 5;";
+  content += "border-radius: 5px;";
+  content += "font-family: Arial;";
+  content += "font-size: 24px;";
+  
+  content += "padding: 10px 20px 10px 20px;";
+  content += "text-decoration: none;";
+  content += "}";
+  
+  content += ".pm_btn:hover {";
+  content += "  background: #3cb0fd;";
+  content += "  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);";
+  content += "  text-decoration: none;";
+  content += "}";
+  
+  content += ".pms_btn {";
+  //content += "width: 240px;";
+  content += "-webkit-border-radius: 5;";
+  content += "-moz-border-radius: 5;";
+  content += "border-radius: 5px;";
+  content += "font-family: Arial;";
+  content += "color: #ffffff;";
+  content += "font-size: 24px;";
+  content += "background: #3498db;";
+  content += "padding: 10px 20px 10px 20px;";
+  content += "text-decoration: none;";
+  content += "}";
+  
+  content += ".pms_btn:hover {";
+  content += "background: #3cb0fd;";
+  content += "background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: -o-linear-gradient(top, #3cb0fd, #3498db);";
+  content += "background-image: linear-gradient(to bottom, #3cb0fd, #3498db);";
+  content += "text-decoration: none;";
+  content += "}";
+  content += "  </style>";
+  content += "</head>";
+  content += "<body>";
+  
+  content += "<table width=\"100%\">";
+  content +="<tr>";
+  content +="<td><a href='./' class=\"pm_text\"><button>Home</button></a></td>";
+  content +="<td><a href='./editor'  class=\"pm_text\"><button>Editor Motor</button></a></td>";
+  content +="<td><a href='./zero'  class=\"pm_text\"><button>Init Motor</button></a></td>";
+  content +="<td><a href='./setting'  class=\"pm_text\"><button>Setting Motor</button></a></td>";
+  content +="</tr>";
+  content += "</table>";
+  
+  content += "<table width=\"100%\">";
+  content += "<tr>";
+  
+  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"motor(17, 90)\">GPIO14[17]</button></td>";
+  content += "<td width=\"50%\"><button class=\"pm_btn\" type=\"button\" onclick=\"motor(16, 90)\">GPIO12[16]</button></td>";
+  content += "</tr>";
+  
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"motor(8,40)\">Servo 8</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"motor(7,80)\">Servo 7</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"motor(9,100)\">Servo 9</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"motor(6,20)\">Servo 6</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"motor(10,20)\">Servo 10</button></td>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"motor(5, 100)\">Servo 5</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"motor(11,30)\">Servo 11</button></td>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"motor(4,80)\">Servo 4</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"motor(12,55)\">Servo 12</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"motor(3,60)\">Servo 3</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"motor(13,35)\">Servo 13</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #f5da81;\" type=\"button\" onclick=\"motor(2,80)\">Servo 2</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"motor(14,75)\">Servo 14</button></td>";
+  content += "<td><button class=\"pm_btn\" style=\"background: #bdbdbd;\" type=\"button\" onclick=\"motor(1,35)\">Servo 1</button></td>";
+  content += "</tr>";
+
+  content += "<tr>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"motor(15,50)\">Servo 15</button></td>";
+  content += "<td><button class=\"pm_btn\" type=\"button\" onclick=\"motor(0,65)\">Servo 0</button></td>";
+  content += "</tr>";
+
+  
+  content += "<tr>";
+  content += "<td colspan=\"2\"><button class=\"pm_btn\" type=\"button\" onclick=\"reset()\">ALL</button></td>";
+  content += "</tr>";
+  
+  
+  content += "</table>";
+  content += "<br>";
+  
+  
+  content += "</body>";
+  content += "<script>";
+  content += "function motor(id, value) {";
+  content += "  var xhttp = new XMLHttpRequest();";
+  
+  content += "  xhttp.onreadystatechange = function() {";
+  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+  content += "    }";
+  content += "  };";
+  content += "  xhttp.open(\"GET\", \"motor?motor_id=\"+id+\"&value=\"+value, true);";
+  content += "  xhttp.send();";
+  content += "}";
+  
+  content += "function reset() {";
+  content += "  var xhttp = new XMLHttpRequest();";
+  
+  content += "  xhttp.onreadystatechange = function() {";
+  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+  content += "    }";
+  content += "  };";
+  content += "  xhttp.open(\"GET\", \"reset\", true);";
+  content += "  xhttp.send();";
+  content += "}";
+//  content += "function controlGpid(id, value) {";
+//  content += "  var xhttp = new XMLHttpRequest();";
+//  
+//  content += "  xhttp.onreadystatechange = function() {";
+//  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+//  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+//  content += "    }";
+//  content += "  };";
+//  content += "  xhttp.open(\"GET\", \"controller?gpid=\"+id+\"&value=\"+value, true);";
+//  content += "  xhttp.send();";
+//  content += "}";
+  
+//  content += "function controlPm(value) {";
+//  content += "  var xhttp = new XMLHttpRequest();";
+//  content += "  xhttp.onreadystatechange = function() {";
+//  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+//  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+//  content += "    }";
+//  content += "  };";
+//  content += "  xhttp.open(\"GET\", \"controller?pm=\"+value, true);";
+//  content += "  xhttp.send();";
+//  content += "}";
+
+  content += "function action(actionId, value) {";
+  content += "  var xhttp = new XMLHttpRequest();";
+  content += "  xhttp.onreadystatechange = function() {";
+  content += "    if (xhttp.readyState == 4 && xhttp.status == 200) {";
+  content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
+  content += "    }";
+  content += "  };";
+  content += "  xhttp.open(\"GET\", \"action?action_id=\"+actionId, true);";
+  content += "  xhttp.send();";
+  content += "}";
+  
+  content += "</script>";
+  content += "</html>";
+  
+  server.send(200, "text/html", content);
+  
+}
+
+
+
 void handlerEditor(){
 
   String content = "";
@@ -407,17 +405,18 @@ void handlerEditor(){
   
   content += "<table width=\"100%\">";
   content +="<tr>";
-  content +="<td><a href='./index'><button>Home</button></a></td>";
-  content +="<td><a href='./editor'><button>Setting Motor</button></a></td>";
-  content +="<td><a href='./zero'><button>Init Motor</button></a></td>";
+  content +="<td><a href='./' class=\"pm_text\"><button>Home</button></a></td>";
+  content +="<td><a href='./editor'  class=\"pm_text\"><button>Editor Motor</button></a></td>";
+  content +="<td><a href='./zero'  class=\"pm_text\"><button>Init Motor</button></a></td>";
+  content +="<td><a href='./setting'  class=\"pm_text\"><button>Setting Motor</button></a></td>";
   content +="</tr>";
   content += "</table>";
   
   content += "<table width=\"100%\">";
   content += "<tr>";
   
-  content += "<td width=\"50%\">GPID14<br/><input class=\"pm_text\" type=\"text\" id=\"gpid_14\" value=\"90\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlGpid(14, 'gpid_14')\">SEND</button></td>";
-  content += "<td width=\"50%\">GPID12<br/><input class=\"pm_text\" type=\"text\" id=\"gpid_12\"  value=\"90\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlGpid(12, 'gpid_12')\">SEND</button></td>";
+  content += "<td width=\"50%\">GPID14<br/><input class=\"pm_text\" type=\"text\" id=\"gpid_14\" value=\"90\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlGpid(17, 'gpid_14')\">SEND</button></td>";
+  content += "<td width=\"50%\">GPID12<br/><input class=\"pm_text\" type=\"text\" id=\"gpid_12\"  value=\"90\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlGpid(16, 'gpid_12')\">SEND</button></td>";
   content += "</tr>";
   
   content += "<tr>";
@@ -442,25 +441,25 @@ void handlerEditor(){
   
   
   content += "<tr>";
-  content += "<td>Servo12<br/><input class=\"pm_text\" type=\"text\" id=\"servo_12\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(12,'servo_12')\">SEND</button></td>";
-  content += "<td>Servo3<br/><input class=\"pm_text\" type=\"text\" id=\"servo_3\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(3,'servo_3')\">SEND</button></td>";
+  content += "<td>Servo12<br/><input class=\"pm_text\" type=\"text\" value=\"55\" id=\"servo_12\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(12,'servo_12')\">SEND</button></td>";
+  content += "<td>Servo3<br/><input class=\"pm_text\" type=\"text\" value=\"60\" id=\"servo_3\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(3,'servo_3')\">SEND</button></td>";
   content += "</tr>";
   
   
   content += "<tr>";
-  content += "<td>Servo13<br/><input class=\"pm_text\" type=\"text\" id=\"servo_13\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(13,'servo_13')\">SEND</button></td>";
-  content += "<td>Servo2<br/><input class=\"pm_text\" type=\"text\" id=\"servo_2\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(2,'servo_2')\">SEND</button></td>";
+  content += "<td>Servo13<br/><input class=\"pm_text\" type=\"text\" value=\"35\" id=\"servo_13\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(13,'servo_13')\">SEND</button></td>";
+  content += "<td>Servo2<br/><input class=\"pm_text\" type=\"text\" value=\"80\" id=\"servo_2\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(2,'servo_2')\">SEND</button></td>";
   content += "</tr>";
   
   
   content += "<tr>";
-  content += "<td>Servo14<br/><input class=\"pm_text\" type=\"text\"  id=\"servo_14\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(14,'servo_14')\">SEND</button></td>";
-  content += "<td>Servo1<br/><input class=\"pm_text\" type=\"text\" id=\"servo_1\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(1,'servo_1')\">SEND</button></td>";
+  content += "<td>Servo14<br/><input class=\"pm_text\" type=\"text\" value=\"75\" id=\"servo_14\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(14,'servo_14')\">SEND</button></td>";
+  content += "<td>Servo1<br/><input class=\"pm_text\" type=\"text\" value=\"35\" id=\"servo_1\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(1,'servo_1')\">SEND</button></td>";
   content += "</tr>";
   
   content += "<tr>";
-  content += "<td>Servo15<br/><input class=\"pm_text\" type=\"text\"  id=\"servo_15\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(15,'servo_15')\">SEND</button></td>";
-  content += "<td>Servo0<br/><input class=\"pm_text\" type=\"text\" id=\"servo_0\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(0,'servo_0')\">SEND</button></td>";
+  content += "<td>Servo15<br/><input class=\"pm_text\" type=\"text\" value=\"50\" id=\"servo_15\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(15,'servo_15')\">SEND</button></td>";
+  content += "<td>Servo0<br/><input class=\"pm_text\" type=\"text\" value=\"65\" id=\"servo_0\"><button class=\"pm_btn\" type=\"button\" onclick=\"controlServo(0,'servo_0')\">SEND</button></td>";
   content += "</tr>";
   
   
@@ -479,7 +478,7 @@ void handlerEditor(){
   content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
   content += "    }";
   content += "  };";
-  content += "  xhttp.open(\"GET\",\"controller?servo=\"+id+\"&value=\"+value, true);";
+  content += "  xhttp.open(\"GET\",\"motor?motor_id=\"+id+\"&value=\"+value, true);";
   content += "  xhttp.send();";
   content += "}";
   content += "function controlGpid(id, textId) {";
@@ -490,7 +489,7 @@ void handlerEditor(){
   content += "     document.getElementById(\"demo\").innerHTML = xhttp.responseText;";
   content += "    }";
   content += "  };";
-  content += "  xhttp.open(\"GET\", \"controller?gpid=\"+id+\"&value=\"+value, true);";
+  content += "  xhttp.open(\"GET\", \"motor?motor_id=\"+id+\"&value=\"+value, true);";
   content += "  xhttp.send();";
   content += "}";
   
@@ -639,10 +638,19 @@ void handleSetting()
   content += "</head>";
   content += "<body>";
 
+  content += "<table width=\"100%\">";
+  content +="<tr>";
+  content +="<td><a href='./' class=\"pm_text\"><button>Home</button></a></td>";
+  content +="<td><a href='./editor'  class=\"pm_text\"><button>Editor Motor</button></a></td>";
+  content +="<td><a href='./zero'  class=\"pm_text\"><button>Init Motor</button></a></td>";
+  content +="<td><a href='./setting'  class=\"pm_text\"><button>Setting Motor</button></a></td>";
+  content +="</tr>";
+  content += "</table>";
+  
   content += "<table>";
   content += "<tr>";
-  content += "<td>GPIO 14<br/><input class=\"pm_text\" type=\"text\" id=\"servo_17\" value=\"" + servo17ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(17,'servo_17')\">SET</button></td>";
-  content += "<td>GPIO 12<br/><input class=\"pm_text\" type=\"text\" id=\"servo_16\" value=\"" + servo16ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(16,'servo_16')\">SET</button></td>";
+  content += "<td>GPIO 14 (Servo 17)<br/><input class=\"pm_text\" type=\"text\" id=\"servo_17\" value=\"" + servo17ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(17,'servo_17')\">SET</button></td>";
+  content += "<td>GPIO 12 (Servo 16)<br/><input class=\"pm_text\" type=\"text\" id=\"servo_16\" value=\"" + servo16ValStr + "\"><button class=\"pm_btn\" type=\"button\" onclick=\"saveServo(16,'servo_16')\">SET</button></td>";
   content += "</tr>";
 
   content += "<tr>";
@@ -741,6 +749,7 @@ void handleSetting()
 /*============================================================================*/
 void handleSave()
 {
+  //移動到davinci
   //如果value = 100 則全部reset
   String key = server.arg("key");
   String value = server.arg("value");
@@ -768,11 +777,29 @@ void handleSave()
     writeKeyValue(15, 0);
     writeKeyValue(16, 0);
     writeKeyValue(17, 0);
+    
+    currentAction = ACTION_DAVINCI;
   }
   else
   {
     writeKeyValue(keyInt, valueInt);
+    if(keyInt==16){
+      int GPIO12_PWM = actionDavinci[16] + readKeyValue(16);
+      GPIO12SERVO.write(GPIO12_PWM);
+    }
+    else if(keyInt==17){
+      int GPIO14_PWM = actionDavinci[17] + readKeyValue(17);
+      GPIO14SERVO.write(GPIO14_PWM);
+    }
+    else{
+      int pwnVal = actionDavinci[keyInt] + readKeyValue(keyInt);
+      int pulselength = map(pwnVal, 0, 180, SERVOMIN, SERVOMAX);
+      pwm.setPWM(keyInt, 0, pulselength);
+    }
   }
+  
+  
+  //currentAction = ACTION_DAVINCI;
 
   server.send(200, "text/html", "(key, value)=(" + key + "," + value + ")");
 }
@@ -792,6 +819,7 @@ void handleMotor(){
       GPIO14SERVO.write(GPIO14_PWM);
     }
     else{
+      int SERVOID_PWM = iServoPWM + readKeyValue(iMotorId);
       int pulselength = map(iServoPWM, 0, 180, SERVOMIN, SERVOMAX);
       pwm.setPWM(iMotorId, 0, pulselength);
     }
@@ -865,6 +893,17 @@ void handleHello(){
   content += "Hello word";
   content += "</body>";
   content += "</html>";
+  server.send(200, "text/html", content);
+}
+
+void handleHelloAction(){
+  String content = "";
+  content = "<html>";
+  content += "<body>";
+  content += "Hello word";
+  content += "</body>";
+  content += "</html>";
+  resetToHello();
   server.send(200, "text/html", content);
 }
 

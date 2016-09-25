@@ -1,4 +1,4 @@
-int ACTION_DAVINCI_STEPS = 1;
+//int ACTION_DAVINCI_STEPS = 1;
 int ACTION_01_STEPS = 1;
 int ACTION_02_STEPS = 4;
 int ACTION_03_STEPS = 9;
@@ -13,6 +13,7 @@ int ACTION_11_STEPS = 27;
 int ACTION_20_STEPS = 6;
 int ACTION_21_STEPS = 8;
 
+
 // ES08MDII - 達文西姿勢
 /////////////////////////////////////////////////////    0    ,    1    ,    2    ,    3    ,    4    ,    5    ,    6    ,    7    ,    8    ,    9    ,    10   ,    11   ,    12   ,    13   ,    14   ,    15   ,   G12   ,  G14   ,  ms
 int actionDavinci [ ] PROGMEM = {   65,      35,      80,      60,      80,     100,     20,      80,      40,     100,      20,       30,       55,       35,       75,       50,        90,       90,        0     };
@@ -20,6 +21,9 @@ int actionDavinci [ ] PROGMEM = {   65,      35,      80,      60,      80,     
 // ES08MDII - 立正
 /////////////////////////////////////////////////////    0    ,    1    ,    2    ,    3    ,    4    ,    5    ,    6    ,    7    ,    8    ,    9    ,    10   ,    11   ,    12   ,    13   ,    14   ,    15   ,   G12   ,  G14   ,  ms
 int action00 [ ] PROGMEM = {   65,      35,      80,      60,      80,     100,     95,      80,      40,      25,       20,       30,       55,       35,       75,       50,        90,       90,        0     };
+
+/////////////////////////////////////////////////////    0    ,    1    ,    2    ,    3    ,    4    ,    5    ,    6    ,    7    ,    8    ,    9    ,    10   ,    11   ,    12   ,    13   ,    14   ,    15   ,   G12   ,  G14   ,  ms
+int actionHello [ ] PROGMEM = {   65,      35,      80,      60,      80,     100,     95,      80,      40,      25,       20,       30,       55,       35,       75,       50,        90,       90,        0     };
 
 
 
@@ -276,10 +280,10 @@ int  action11 [][ALLMATRIX] PROGMEM = {
 int action20 [][ALLMATRIX] PROGMEM = {
   //    0    ,    1    ,    2    ,    3    ,    4    ,    5    ,    6    ,    7    ,    8    ,    9    ,    10   ,    11   ,    12   ,    13   ,    14   ,    15   ,   G12   ,  G14   ,  ms
   {    65,      35,      80,      60,      80,     100,     95,      80,      40,      25,       20,       30,       55,       35,       75,       50,        90,       90,      500   },      // 立正
-  {    65,      35,      80,       0,       80,     100,     20,      80,      40,     100,      20,       30,      115,      35,       75,       50,        90,       90,      800   },      // 雙手平舉 起身
-  {    65,      35,      80,       0,        0,      100,     20,      80,      40,     100,      20,      110,     115,      35,       75,       50,        90,       90,      800   },      // 雙手平舉 起身 開臀
-  {     0,       35,      80,      60,       0,       15,      20,      80,      40,     100,     105,     110,      55,       35,       75,      120,       90,       90,      800   },      // 雙手平舉 起身 劈腿
-  {    65,      35,      80,      60,      80,      15,      95,      80,      40,      25,      105,      30,       55,       35,       75,       50,        90,       90,      1000 },      // 雙手平舉 合腿起立
+  {    65,      35,      80,       0,      80,     100,     20,      80,      40,     100,      20,       30,      115,      35,       75,       50,        90,       90,      800   },      // 雙手平舉 起身
+  {    65,      35,      80,       0,       0,     100,     20,      80,      40,     100,      20,      110,     115,      35,       75,       50,        90,       90,      800   },      // 雙手平舉 起身 開臀
+  {     0,      35,      80,      60,       0,      15,     20,      80,      40,     100,     105,     110,      55,       35,       75,      120,       90,       90,      800   },      // 雙手平舉 起身 劈腿
+  {    65,      35,      80,      60,      80,      15,     95,      80,      40,      25,      105,      30,       55,       35,       75,       50,        90,       90,      1000 },      // 雙手平舉 合腿起立
   {    65,      35,      80,      60,      80,     100,     95,      80,      40,      25,       20,       30,       55,       35,       75,       50,        90,       90,      500   }       // 立正
 };
 
@@ -336,6 +340,12 @@ int getActionSteps(int actionId){
   case ACTION_11:
     steps = ACTION_11_STEPS;
     break;
+  case ACTION_20:
+    steps = ACTION_20_STEPS;
+    break;
+  case ACTION_21:
+    steps = ACTION_21_STEPS;
+    break;
   default:
     break;
   }
@@ -376,6 +386,12 @@ void getAction(int actionId, int actionMatrix [][19]){
   case ACTION_11:
     actionMatrix = action11;
     break;
+  case ACTION_20:
+    actionMatrix = action20;
+    break;
+  case ACTION_21:
+    actionMatrix = action21;
+    break;
   default:
     actionMatrix = action01;
     break;
@@ -415,6 +431,25 @@ void resetToStand()
   for ( int index = 0; index < ALLMATRIX; index++)
   {
     currentPosition[index] = action00[index] + readKeyValue(index);
+  }
+
+  // 重新載入馬達預設數值
+  for (int iServo = 0; iServo < ALLSERVOS; iServo++)
+  {
+    setPWMVal(iServo, currentPosition[iServo]);
+    delay(10);
+  }
+  Serial.print("resetToStand complete:");
+}
+
+/*============================================================================*/
+void resetToHello()
+{
+  //立正
+  // 清除備份目前馬達數值
+  for ( int index = 0; index < ALLMATRIX; index++)
+  {
+    currentPosition[index] = actionHello[index] + readKeyValue(index);
   }
 
   // 重新載入馬達預設數值
@@ -485,10 +520,7 @@ void doAction(int actionId){
         Serial.println("miniPlan apache");
         steps = getActionSteps(ACTION_05);
         //getAction(ACTION_05, iMatrix);
-        Serial.print("miniPlan apache step:");
-        Serial.println(steps);
         execAction(action05, steps);
-        Serial.println("miniPlan apache complete");
         resetToStand();
         break;
       case ACTION_06:  // balance動作
@@ -528,12 +560,25 @@ void doAction(int actionId){
         execAction(action11, steps);
         resetToStand();
         break;
-      case ACTION_DAVINCI:  // 待機
+      case ACTION_20:  // 仰躺起立動作
+        Serial.println("miniPlan down_up");
+        steps = getActionSteps(ACTION_11);
+        execAction(action11, steps);
         resetToStand();
+        break;
+      case ACTION_21:  // 右轉動作
+        Serial.println("miniPlan right");
+        steps = getActionSteps(ACTION_11);
+        execAction(action11, steps);
+        resetToStand();
+        break;
+      case ACTION_DAVINCI:  // 待機
+        resetToDavinci();
         delay(300);
         break;
       case 1000:  // 待機
-        resetToDavinci();
+        resetToStand();
+        //resetToDavinci();
         delay(300);
         break;
     }
